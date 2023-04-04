@@ -11,7 +11,7 @@ export default function App() {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
 
-  useEffect(() => {    
+  useEffect(() => {
     if (localContacts) {
       setContacts(JSON.parse(localContacts));
     }
@@ -21,12 +21,12 @@ export default function App() {
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  const handleAddContact = newContact => {
+  const addContact = newContact => {
     if (contacts.find(contact => contact.name === newContact.name)) {
       alert(`${newContact.name} is already in your contacts.`);
     } else {
       setContacts([...contacts, newContact]);
-      localStorage.setItem('contacts', JSON.stringify(contacts))
+      localStorage.setItem('contacts', JSON.stringify(contacts));
     }
   };
 
@@ -48,7 +48,7 @@ export default function App() {
   return (
     <div className={css.phonebook}>
       <h1 className={css.form__title}>Phonebook</h1>
-      <ContactForm contacts={contacts} addContact={handleAddContact} />
+      <ContactForm contacts={contacts} addContact={addContact} />
       <h2>Contacts</h2>
       <Filter
         contactsList={contacts}
