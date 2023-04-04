@@ -1,12 +1,7 @@
-import { Component } from 'react';
 import css from '../Filter/Filter.module.css';
 
-class Filter extends Component {
-  state = {
-    contactsFiltered: [],
-  };
+export default function Filter({handleFilterContacts, filterContacts}) {
 
-  render() {
     return (
       <div className={css.filter}>
         <label className={css.filter__title}>
@@ -16,16 +11,11 @@ class Filter extends Component {
             name="filter"
             className={css.filter__input}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            // required
-            onChange={this.props.handleFilterContacts}
-            onInput={this.props.filterContacts}
-            value={this.props.filter}
+            onChange={handleFilterContacts}
+            onInput={filterContacts}
           />
         </label>
       </div>
     );
   }
-}
 
-export default Filter;
