@@ -1,4 +1,5 @@
 import css from '../Filter/Filter.module.css';
+import PropTypes from 'prop-types';
 
 export default function Filter({handleFilterContacts, filterContacts}) {
 
@@ -19,3 +20,7 @@ export default function Filter({handleFilterContacts, filterContacts}) {
     );
   }
 
+Filter.propType = {
+  handleFilterContacts: PropTypes.func.isRequired,
+  filterContacts: PropTypes.func.isRequired,
+};

@@ -1,4 +1,5 @@
 import css from '../Contacts/ContactList.module.css';
+import PropTypes from 'prop-types';
 
 export default function ContactList({ filteredContact, deleteContact }) {
   return filteredContact.map(contact => (
@@ -16,3 +17,9 @@ export default function ContactList({ filteredContact, deleteContact }) {
     </li>
   ));
 }
+
+ContactList.propType = {
+  filteredContact: PropTypes.func.isRequired,
+  deleteContact: PropTypes.func.isRequired,
+};
+
